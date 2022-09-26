@@ -1,9 +1,9 @@
 # 2021年中国全国5级行政区划（省、市、县、镇、村）
 
-* 数据来源 中华人民共和国国家统计局 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/
+* 数据来源 中华人民共和国国家统计局 [http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/)
 * 最新数据量 679237 （2020年6月30日）
-* CSV格式 area_code_2021.csv.gz
-* SQL格式 area_code_2021.sql.gz
+* CSV格式 [area_code_2021.csv.gz](area_code_2021.csv.gz)
+* SQL格式 [area_code_2021.sql.gz](area_code_2021.sql.gz)
 * JSON格式 单JSON格式太大就不生成了
 * 建议级联操作，数据量确实太大了
 * 级别
@@ -13,9 +13,7 @@
   * 4级：镇、乡、民族乡、县辖区、街道
   * 5级：村、居委会
 
-
 ![summary](summary2021.jpg "汇总")
-
 
 ## 大量村镇合并
 
@@ -25,15 +23,14 @@
 - 山东省/青岛市/莱西市/[姜山镇](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/370285.html)  2019年有[96个村子](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/37/02/85/370285101.html)，到了2020年合并为[14个社区](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/85/370285101.html)，少了82个村
 - 山东省/聊城市/高唐县/[杨屯镇](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/15/371526.html)  2019年有[81个村子](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/37/15/26/371526109.html)，到了2020年合并为[18个社区](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/15/26/371526109.html)，少了63个村
 
-
-----
+---
 
 # 2020年中国全国5级行政区划（省、市、县、镇、村）
 
 * 数据来源 中华人民共和国国家统计局 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/
 * 最新数据量 704750 （2019年10月31日）
-* CSV格式 area_code_2020.csv.gz
-* SQL格式 area_code_2020.sql.gz
+* CSV格式 [area_code_2020.csv.gz](area_code_2020.csv.gz)
+* SQL格式 [area_code_2020.sql.gz](area_code_2020.sql.gz)
 * JSON格式 单JSON格式太大就不生成了
 * 建议级联操作，数据量确实太大了
 * 级别
@@ -42,7 +39,6 @@
   * 3级：市辖区、县（旗）、县级市、自治县（自治旗）、特区、林区
   * 4级：镇、乡、民族乡、县辖区、街道
   * 5级：村、居委会
-
 
 ![summary](summary.png "汇总")
 
@@ -79,6 +75,8 @@ $ gzcat area_code_2021.csv.gz |head
 ## SQL 格式
 
 > $ gzcat area_code_2021.sql.gz |head -n 38
+
+[area_code_2021.sql.gz](area_code_2021.sql.gz)
 
 ```sql
 # ************************************************************
@@ -142,7 +140,6 @@ code    province    city    county  town    villagetr
 
 JSON格式，适合web端js加载。
 
-
 ```json
 [
   {
@@ -178,6 +175,6 @@ JSON格式，适合web端js加载。
 
 ## 文件列表
 
-- area_code_2021.csv.gz
-- area_code_2021.sql.gz
-- area_code_2021.json
+- [area_code_2021.csv.gz](area_code_2021.csv.gz)
+- [area_code_2021.sql.gz](area_code_2021.sql.gz)
+- [area_code_2021.json](area_code_2021.json)
