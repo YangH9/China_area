@@ -1,180 +1,87 @@
-# 2021年中国全国5级行政区划（省、市、县、镇、村）
+# China_area
 
-* 数据来源 中华人民共和国国家统计局 [http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/)
-* 最新数据量 679237 （2020年6月30日）
-* CSV格式 [area_code_2021.csv.gz](area_code_2021.csv.gz)
-* SQL格式 [area_code_2021.sql.gz](area_code_2021.sql.gz)
-* JSON格式 单JSON格式太大就不生成了
-* 建议级联操作，数据量确实太大了
-* 级别
-  * 1级：省、直辖市、自治区
-  * 2级：地级市
-  * 3级：市辖区、县（旗）、县级市、自治县（自治旗）、特区、林区
-  * 4级：镇、乡、民族乡、县辖区、街道
-  * 5级：村、居委会
+[![code style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![npm](https://img.shields.io/npm/v/china-division.svg)](https://www.npmjs.com/package/china-division)
+[![downloads](https://img.shields.io/npm/dt/china-division.svg)](https://www.npmjs.com/package/china-division)
+[![license](https://img.shields.io/badge/license-WTFPL%20--%20Do%20What%20the%20Fuck%20You%20Want%20to%20Public%20License-green.svg)](https://raw.githubusercontent.com/yangh9/China_area/master/LICENSE)
 
-![summary](summary2021.jpg "汇总")
+中华人民共和国行政区划（五级）：省级、地级、县级、乡级和村级。
 
-## 大量村镇合并
+## 数据来源
 
-例如：
+*   国家统计局：
+  * [中华人民共和国国家统计局-统计用区划和城乡划分代码](http://www.stats.gov.cn/sj/tjbz/qhdm/)
+  * [中华人民共和国国家统计局-统计用区划代码和城乡划分代码编制规则](http://www.stats.gov.cn/sj/tjbz/gjtjbz/202302/t20230213_1902741.html)
+*   本项目已更新至：
+  * [2023年统计用区划代码和城乡划分代码（截止时间：2023-06-30，发布时间：2023-09-11）](http://www.stats.gov.cn/sj/tjbz/tjyqhdmhcxhfdm/2023/index.html)
 
-- 山东省/青岛市/莱西市/[院上镇](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/370285.html)  2019年有[103个村子](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/37/02/85/370285104.html)，到了2020年合并为[10个社区](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/85/370285104.html)，少了93个村
-- 山东省/青岛市/莱西市/[姜山镇](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/370285.html)  2019年有[96个村子](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/37/02/85/370285101.html)，到了2020年合并为[14个社区](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/02/85/370285101.html)，少了82个村
-- 山东省/聊城市/高唐县/[杨屯镇](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/15/371526.html)  2019年有[81个村子](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/37/15/26/371526109.html)，到了2020年合并为[18个社区](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/37/15/26/371526109.html)，少了63个村
+## 数据下载
 
----
+| 文件列表                     | JSON | CSV |
+|:-----------------------------|:-----|:----|
+| 省级（省份、直辖市、自治区） | [provinces.json](https://github.com/yangh9/China_area/blob/master/dist/provinces.json) | [provinces.csv](https://github.com/yangh9/China_area/blob/master/dist/provinces.csv) |
+| 地级（城市）                 | [cities.json](https://github.com/yangh9/China_area/blob/master/dist/cities.json) | [cities.csv](https://github.com/yangh9/China_area/blob/master/dist/cities.csv) |
+| 县级（区县）                 | [areas.json](https://github.com/yangh9/China_area/blob/master/dist/areas.json) | [areas.csv](https://github.com/yangh9/China_area/blob/master/dist/areas.csv) |
+| 乡级（乡镇、街道）           | [streets.json](https://github.com/yangh9/China_area/blob/master/dist/streets.json) | [streets.csv](https://github.com/yangh9/China_area/blob/master/dist/streets.csv) |
+| 村级（村委会、居委会）       | [villages.json](https://github.com/yangh9/China_area/blob/master/dist/villages.json) | [villages.csv](https://github.com/yangh9/China_area/blob/master/dist/villages.csv) |
 
-# 2020年中国全国5级行政区划（省、市、县、镇、村）
+| 文件列表                                    | 普通 | 带编码 |
+|:--------------------------------------------|:-----|:-------|
+| “省份、城市” 二级联动数据                   | [pc.json](https://github.com/yangh9/China_area/blob/master/dist/pc.json) | [pc-code.json](https://github.com/yangh9/China_area/blob/master/dist/pc-code.json) |
+| “省份、城市、区县” 三级联动数据             | [pca.json](https://github.com/yangh9/China_area/blob/master/dist/pca.json) | [pca-code.json](https://github.com/yangh9/China_area/blob/master/dist/pca-code.json) |
+| “省份、城市、区县、乡镇” 四级联动数据       | [pcas.json](https://github.com/yangh9/China_area/blob/master/dist/pcas.json) | [pcas-code.json](https://github.com/yangh9/China_area/blob/master/dist/pcas-code.json) |
+| “省份、城市、区县、乡镇、村庄” 五级联动数据 | - | - |
 
-* 数据来源 中华人民共和国国家统计局 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/
-* 最新数据量 704750 （2019年10月31日）
-* CSV格式 [area_code_2020.csv.gz](area_code_2020.csv.gz)
-* SQL格式 [area_code_2020.sql.gz](area_code_2020.sql.gz)
-* JSON格式 单JSON格式太大就不生成了
-* 建议级联操作，数据量确实太大了
-* 级别
-  * 1级：省、直辖市、自治区
-  * 2级：地级市
-  * 3级：市辖区、县（旗）、县级市、自治县（自治旗）、特区、林区
-  * 4级：镇、乡、民族乡、县辖区、街道
-  * 5级：村、居委会
+> 提示：需要打包下载全部文件，请看 [Releases](https://github.com/yangh9/China_area/releases)。
 
-![summary](summary.png "汇总")
+## 数据库支持
 
-- 少了1个地级市：山东省莱芜市，被济南市合并了，做大省会的意图明显，二线城市中济南落户比较明显
+目前本项目数据保存在 sqlite3，数据文件下载：[data.sqlite](https://github.com/yangh9/China_area/blob/master/dist/data.sqlite)。
 
----
+可以自己将数据迁移到其他数据库管理系统中（MySQL, Oracle, MSSQL 等）。
 
-## CSV格式
+**省级数据预览**
 
-* code,name,level,pcode
-* level: 省1，市2，县3，镇4，村5
-* code: 12位，省2位，市2位，县2位，镇3位，村3位
-* pcode: 直接父级别的code
+| code | name           |
+|:-----|:---------------|
+| 13   | 河北省         |
+| 14   | 山西省         |
+| 15   | 内蒙古自治区   |
+| 45   | 广西壮族自治区 |
 
-文本内容
+**地级数据预览**
 
-```bash
-$ gzcat area_code_2021.csv.gz |wc -l
-  679237
+| code | name       | provinceCode |
+|:-----|:-----------|:-------------|
+| 1301 | 石家庄市   | 13           |
+| 1401 | 太原市     | 14           |
+| 1525 | 锡林郭勒盟 | 15           |
+| 4503 | 桂林市     | 45           |
 
-$ gzcat area_code_2021.csv.gz |head
-110000000000,"北京市",1,0
-110100000000,"市辖区",2,110000000000
-110101000000,"东城区",3,110100000000
-110101001000,"东华门街道",4,110101000000
-110101001001,"多福巷社区居委会",5,110101001000
-110101001002,"银闸社区居委会",5,110101001000
-110101001005,"东厂社区居委会",5,110101001000
-110101001006,"智德社区居委会",5,110101001000
-110101001007,"南池子社区居委会",5,110101001000
-110101001008,"黄图岗社区居委会",5,110101001000
-```
+**县级数据预览**
 
-## SQL 格式
+| code   | name     | cityCode | provinceCode |
+|:-------|:---------|:---------|:-------------|
+| 130111 | 栾城区   | 1301     | 13           |
+| 140121 | 清徐县   | 1401     | 14           |
+| 152527 | 太仆寺旗 | 1525     | 15           |
+| 450305 | 七星区   | 4503     | 45           |
 
-> $ gzcat area_code_2021.sql.gz |head -n 38
+**乡级数据预览**
 
-[area_code_2021.sql.gz](area_code_2021.sql.gz)
+| code      | name           | areaCode | cityCode | provinceCode |
+|:----------|:---------------|:---------|:---------|:-------------|
+| 130111200 | 南高乡         | 130111   | 1301     | 13           |
+| 140121102 | 东于镇         | 140121   | 1401     | 14           |
+| 152527201 | 贡宝拉格苏木   | 152527   | 1525     | 15           |
+| 450305004 | 漓东街道办事处 | 450305   | 4503     | 45           |
 
-```sql
-# ************************************************************
-# Sequel Ace SQL dump
-# 版本号： 3024
-#
-# https://sequel-ace.com/
-# https://github.com/Sequel-Ace/Sequel-Ace
-#
-# 主机: 127.0.0.1 (MySQL 5.7.29)
-# 数据库: china_area
-# 生成时间: 2021-04-04 07:24:01 +0000
-# ************************************************************
+**村级数据预览**
 
+| code         | name           | streetCode | areaCode | cityCode | provinceCode |
+|:-------------|:---------------|:-----------|:---------|:---------|:-------------|
+| 130111200201 | 南高村委会     | 130111200  | 130111   | 1301     | 13           |
+| 140121102001 | 东于社区居委会 | 140121102  | 140121   | 1401     | 14           |
+| 152527201206 | 敦达乌苏嘎查   | 152527201  | 152527   | 1525     | 15           |
+| 450305004006 | 横塘社区       | 450305004  | 450305   | 4503     | 45           |
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-SET NAMES utf8mb4;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE='NO_AUTO_VALUE_ON_ZERO', SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-# 转储表 area_code_2021
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `area_code_2021`;
-
-CREATE TABLE `area_code_2021` (
-  `code` bigint(12) unsigned NOT NULL COMMENT '区划代码',
-  `name` varchar(128) NOT NULL DEFAULT '' COMMENT '名称',
-  `level` tinyint(1) NOT NULL COMMENT '级别1-5,省市县镇村',
-  `pcode` bigint(12) DEFAULT NULL COMMENT '父级区划代码',
-  PRIMARY KEY (`code`),
-  KEY `name` (`name`),
-  KEY `level` (`level`),
-  KEY `pcode` (`pcode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
-
-查询几条记录
-
-> SELECT * FROM area_index_2021 LIMIT 10
-
-```text
-code    province    city    county  town    villagetr
-110101001001    北京市 市辖区 东城区 东华门街道办事处    多福巷社区居委会
-110101001002    北京市 市辖区 东城区 东华门街道办事处    银闸社区居委会
-110101001005    北京市 市辖区 东城区 东华门街道办事处    东厂社区居委会
-110101001006    北京市 市辖区 东城区 东华门街道办事处    智德社区居委会
-110101001007    北京市 市辖区 东城区 东华门街道办事处    南池子社区居委会
-110101001008    北京市 市辖区 东城区 东华门街道办事处    黄图岗社区居委会
-110101001009    北京市 市辖区 东城区 东华门街道办事处    灯市口社区居委会
-110101001010    北京市 市辖区 东城区 东华门街道办事处    正义路社区居委会
-110101001011    北京市 市辖区 东城区 东华门街道办事处    甘雨社区居委会
-110101001013    北京市 市辖区 东城区 东华门街道办事处    台基厂社区居委会
-```
-
-## 三级区划的JSON格式
-
-JSON格式，适合web端js加载。
-
-```json
-[
-  {
-    "code": 110000000000,
-    "name": "北京市",
-    "level": 1,
-    "pcode": 0,
-    "children": [
-      {
-        "code": 110100000000,
-        "name": "市辖区",
-        "level": 2,
-        "pcode": 110000000000,
-        "children": [
-          {
-            "code": 110101000000,
-            "name": "东城区",
-            "level": 3,
-            "pcode": 110100000000
-          },
-          {
-            "code": 110102000000,
-            "name": "西城区",
-            "level": 3,
-            "pcode": 110100000000
-          }
-        ]
-      }
-    ]
-  }
-]
-```
-
-## 文件列表
-
-- [area_code_2021.csv.gz](area_code_2021.csv.gz)
-- [area_code_2021.sql.gz](area_code_2021.sql.gz)
-- [area_code_2021.json](area_code_2021.json)
