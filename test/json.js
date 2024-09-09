@@ -1,7 +1,5 @@
 /**
  * 测试 JSON 文件的完整性
- * @Author   https://github.com/modood
- * @DateTime 2016-10-10 11:24
  */
 /* eslint no-labels: ["error", { "allowLoop": true }] */
 
